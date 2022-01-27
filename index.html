@@ -8,15 +8,52 @@
     <title>Memory Game</title>
 </head>
 <body>
-    <!--
-        Theme: TBD
-        Overlay image covering game board
-        4 rows of 4 cards  (individual divs 8 matching images)
-        Start button begins game & reveals board
-        Title on top centered
-        Timer in top right (hidden until Start is clicked)
-        Start and Reset at the bottom
-    -->
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Memory Game</title>
+</head>
+<img>
+    <header>
+        <h1>Memory Game</h1>
+        <div id="timer">Timer</div> 
+    </header>
+    <img id="overlay">Overlay Image</img>
+    <section id="gameboard">
+        <div class="memoryCard">
+            <div class="displayNone" id="frontface"><img src="goofy.png" alt="goofy"></div>
+            <div id="backface"><img src="disneylogo.png" alt="disneylogo"></div>
+        </div>
+        <div class="memoryCard">
+            <div class="displayNone" id="frontface"><img src="goofy.png" alt="goofy"></div>
+            <div id="backface"><img src="disneylogo.png" alt="disneylogo"></div>
+        </div>
+        <div class="memoryCard">
+            <div class="displayNone" id="frontface"><img src="mickey.mouse.png" alt="mickey"></div>
+            <div id="backface"><img src="disneylogo.png" alt="disneylogo"></div>
+        </div>
+        <div class="memoryCard">
+            <div class="displayNone" id="frontface"><img src="mickey.mouse.png" alt="mickey"></div>
+            <div id="backface"><img src="disneylogo.png" alt="disneylogo"></div>
+        </div>
+        <div class="memoryCard">
+            <div class="displayNone" id="frontface"><img src="pluto.png" alt="pluto"></div>
+            <div id="backface"><img src="disneylogo.png" alt="disneylogo"></div>
+        </div>
+        <div class="memoryCard">
+            <div class="displayNone" id="frontface"><img src="pluto.png" alt="pluto"></div>
+            <div id="backface"><img src="disneylogo.png" alt="disneylogo"></div>
+        </div>
+    </section>
+    <img id="gameButtons">
+        <img>Start</img>
+        <img>Reset</img>
+    </div>
+        
     <script src="script.js"></script>
 </body>
 </html>
