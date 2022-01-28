@@ -1,10 +1,15 @@
 /*Jordan-TOP OF PAGE*/
-h1 {
-  text-align: center;  
+@font-face {
+    font-family:'NewWaltDisneyUi';
+    src: url(NewWaltDisneyUi-8YdA.ttf);
 }
 
 
-    
+h1 {
+    text-align: center;
+    color: black;
+    font-family:'NewWaltDisneyUi';
+  }   
 
 
 
