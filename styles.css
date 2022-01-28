@@ -6,20 +6,24 @@
 
 
 h1 {
-    text-align: center;
     color: rgb(250, 231, 127);
     font-family:'NewWaltDisneyUi';
     font-size: 10vh;
+    margin-bottom: 0%;
   }   
 
 #timer {
-    text-align: center;
     color: rgb(250, 231, 127);
     font-family:'NewWaltDisneyUi';
     font-size: 5vh;
 }
 
-
+header {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
 
 
 
