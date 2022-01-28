@@ -1,13 +1,13 @@
-var minutesLabel = document.getElementById("minutes");
+        var minutesLabel = document.getElementById("minutes");
         var secondsLabel = document.getElementById("seconds");
         var totalSeconds = 0;
-        setInterval(setTime, 1000);
 
         function setTime()
-        {
+        {   
             ++totalSeconds;
             secondsLabel.innerHTML = pad(totalSeconds%60);
             minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
+            
         }
 
         function pad(val)
@@ -22,3 +22,15 @@ var minutesLabel = document.getElementById("minutes");
                 return valString;
             }
         }
+        
+        const start = document.getElementById("start");
+        start.addEventListener("click",() => {
+            intervalID = setInterval(setTime, 1000);
+        })
+
+        const reset = document.getElementById("reset");
+        reset.addEventListener("click",() => {
+            totalSeconds = 0;
+            document.getElementById("minute").innerHTML = '0';
+            document.getElementById("seconds").innerHTML = '0';
+        })
