@@ -78,6 +78,9 @@ body {
     display: none;
 }
 
+.buttonImg{
+    display: none;
+}
 
 
 
@@ -123,9 +126,45 @@ body {
   }
   #reset:hover {
     background: white;
-    text-align: center;
   }
   
   .buttons{
       display: flex;
   }
+
+
+/*center images and move them over right */
+  @media only screen and (min-width: 768px){
+      .buttons{
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 0px, 50px;
+      }
+
+      #side-by-side{
+          display: flex;          
+      }
+
+      .memoryCard{
+        width: 180px;
+        height: 250px;
+      }
+      
+      .buttonImg{
+          display: flex;
+          width: 100px;
+          height: 150px;
+          margin-left: auto;
+          margin-right: auto;
+      }
+
+      #reset:hover {
+        opacity: 0.85;
+      }
+
+      #start:hover {
+        opacity: 0.85;
+      }
+  
+    }
