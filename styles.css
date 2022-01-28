@@ -36,12 +36,16 @@ body {
     background-attachment: fixed;
     position: relative;
    }
-
+#center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 #gameboard{
     display: grid;
-    justify-content: center;
-    align-content: center;
+    position: relative;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     grid-auto-rows: minmax(100px, auto);
@@ -52,6 +56,8 @@ body {
     border-width: 3px;
     width: 150px;
     height: 250px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #frontface,
