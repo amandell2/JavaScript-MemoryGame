@@ -94,8 +94,7 @@ body {
 
 #start {
     margin-top: 20px;
-    line-height: 60px;
-    width: 60px;
+    line-height: 80px;
     font-weight: bold;
     padding: 0 40px;
     color: rgb(250, 231, 127);;
@@ -103,24 +102,28 @@ body {
     font-family:'NewWaltDisneyUi';
     position: relative;
     border-radius: 20px;
+    font-size: 35px;
   }
   #start:hover {
     background: white;
   }
 
-  #restart {
-    display: flex;
-
+  #reset{
     margin-top: 20px;
-    line-height: 60px;
-    width: 60px;
+    line-height: 80px;
     font-weight: bold;
     padding: 0 40px;
     color: rgb(250, 231, 127);
     border: none;
     font-family:'NewWaltDisneyUi';
     border-radius: 20px;
+    font-size: 35px;
   }
-  button:hover {
+  #reset:hover {
     background: white;
+    text-align: center;
+  }
+  
+  .buttons{
+      display: flex;
   }
