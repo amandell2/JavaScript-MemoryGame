@@ -7,8 +7,9 @@
 
 h1 {
     text-align: center;
-    color: black;
+    color: rgb(250, 231, 127);
     font-family:'NewWaltDisneyUi';
+    font-size: 10vh;
   }   
 
 
