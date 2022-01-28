@@ -92,3 +92,36 @@ body {
 
 
 /*Valerie-Bottom of game*/
+
+#start {
+    margin-top: 20px;
+    line-height: 60px;
+    width: 60px;
+    font-weight: bold;
+    padding: 0 40px;
+    color: rgb(250, 231, 127);;
+    border: none;
+    font-family:'NewWaltDisneyUi';
+    position: relative;
+    border-radius: 20px;
+  }
+  #start:hover {
+    background: white;
+  }
+
+  #restart {
+    display: flex;
+
+    margin-top: 20px;
+    line-height: 60px;
+    width: 60px;
+    font-weight: bold;
+    padding: 0 40px;
+    color: rgb(250, 231, 127);
+    border: none;
+    font-family:'NewWaltDisneyUi';
+    border-radius: 20px;
+  }
+  button:hover {
+    background: white;
+  }
