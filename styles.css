@@ -17,21 +17,31 @@ h1 {
 
 
 /*Amanda- Gameboard*/
+body {
+    background-image: url(disneycastle.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+   }
+
+
 #gameboard{
     display: grid;
+    justify-content: center;
+    align-content: center;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     grid-auto-rows: minmax(100px, auto);
-    justify-items: center;
-    position: relative;
-    
+    position: absolute;
 }
 
 .memoryCard{
     border-style: solid;
     border-width: 3px;
-    width: 90%;
-    height: 100%;
+    width: 150px;
+    height: 250px;
 }
 
 #frontface,
