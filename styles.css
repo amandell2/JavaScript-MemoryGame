@@ -12,7 +12,12 @@ h1 {
     font-size: 10vh;
   }   
 
-
+#timer {
+    text-align: center;
+    color: rgb(250, 231, 127);
+    font-family:'NewWaltDisneyUi';
+    font-size: 5vh;
+}
 
 
 
