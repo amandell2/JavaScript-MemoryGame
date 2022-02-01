@@ -55,24 +55,14 @@
             shuffle()
         })
 
-
-        //function that stops timer when last two cards match
-
-        //function that shuffles on start and reset
-
-
-
-
-
-
-
-
-//function that flips the card to show images
+ //function that flips the card to show images
 let hasFlippedCard = false;
+let lockBoard = false;
 let firstCard, secondCard;
 
 function flipCard(){
-    this.classList.add('flip');
+    if(lockBoard) return;
+    if(this === firstCard) return;
     const frontCard = this.firstElementChild;
     const backCard = this.lastElementChild;
     frontCard.classList.toggle('displayNone');
@@ -82,44 +72,56 @@ function flipCard(){
         //first click
         hasFlippedCard = true;
         firstCard = this;
+        return;
     }
-    else{
         //second click
         hasFlippedCard = false;
         secondCard = this;
-    console.log({firstCard, secondCard});
+    console.log(firstCard.dataset.framework);
+    console.log(secondCard.dataset.framework);
+    //check if match
+        checkForMatch();
     }
-    //Add matching function here
-    checkForMatch();
-}
-function checkForMatch() {
+
+    //funtion that checks for match
+    function checkForMatch(){
         let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
-      
+        console.log(isMatch);
         isMatch ? disableCards() : unflipCards();
-}
+    }
 
-function disableCards(){
-    firstCard.style.visibility="hidden";
-    secondCard.style.visibility="hidden";
-}
+    function disableCards(){
+        setTimeout(()=>{
+        firstCard.style.visibility = "hidden";
+        secondCard.style.visibility = "hidden";
+        resetBoard();
+        }, 1500); 
+    }
 
-function unflipCards() {
-    setTimeout(() => {
-        firstCard.classList.toggle('displayNone');
-        secondCard.classList.toggle('displayNone');
-    }, 1500);
-}
+    function unflipCards(){
+        lockBoard = true;
+        setTimeout(()=>{
+            firstCard.firstElementChild.classList.add('displayNone');
+            firstCard.lastElementChild.classList.remove('displayNone');
+            secondCard.firstElementChild.classList.add('displayNone');
+            secondCard.lastElementChild.classList.remove('displayNone');
+            resetBoard();
+        }, 1500);
+    }
+
+    function resetBoard() {
+        [hasFlippedCard, lockBoard] = [false, false];
+        [firstCard, secondCard] = [null, null];
+      }
+    
+
 cards.forEach(card=>card.addEventListener('click', flipCard));
 
+//function that stops timer when last two cards match
 
+ //function that shuffles on start and reset
 
-//create a function that lets us only click two at a time (locks gameboard)
-//first card should stay flipped until second card is flipped
-
-//function to determine matches or not
-
-
-/*EXTRAS
+ /*EXTRAS
 -something that logs the number of matches
 -congrats screen at the end with time logged
 -add flipping animation
