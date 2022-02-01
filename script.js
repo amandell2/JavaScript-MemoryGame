@@ -90,6 +90,16 @@ function flipCard(){
     console.log({firstCard, secondCard});
     }
     //Add matching function here
+    if(firstCard.dataset.framework ===
+        secondCard.dataset.framework) {
+            firstCard.style.visibility="hidden";
+            secondCard.style.visibility="hidden";
+        } else {
+            setTimeout(() => {
+                firstCard.classList.remove("flip");
+                secondCard.classList.remove("flip");
+            }, 1500);
+        }
 }
 
 cards.forEach(card=>card.addEventListener('click', flipCard));
