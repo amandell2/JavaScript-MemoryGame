@@ -1,6 +1,7 @@
         var minutesLabel = document.getElementById("minutes");
         var secondsLabel = document.getElementById("seconds");
         var totalSeconds = 0;
+        const cards = document.querySelectorAll(".memoryCard");
 
         //intializes the timer
         function setTime()
@@ -26,11 +27,17 @@
         }
         
         //initially shuffle cards
-
+        function shuffle() {
+            cards.forEach(card => {
+              let randomPos = Math.floor(Math.random() * 6);
+              card.style.order = randomPos;
+            });
+          }
         //begins the timer on start click
         const start = document.getElementById("start");
         start.addEventListener("click",() => {
             intervalID = setInterval(setTime, 1000);
+            shuffle()
         })
 
         //resets the timer on reset click
@@ -39,10 +46,12 @@
         */
         const reset = document.getElementById("reset");
         reset.addEventListener("click",() => {
-            totalSeconds = 0;
-            document.getElementById("minute").innerHTML = '0';
-            document.getElementById("seconds").innerHTML = '0';
+            clearInterval(intervalID);
+            totalSeconds = -1;
+            setTime()
+            shuffle()
         })
+
 
         //function that stops timer when last two cards match
 
