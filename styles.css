@@ -48,6 +48,7 @@ body {
 }
 
 #gameboard{
+    visibility: hidden;
     display: grid;
     position: relative;
     grid-template-columns: repeat(3, 1fr);

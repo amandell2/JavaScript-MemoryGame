@@ -34,8 +34,10 @@
             });
           }
         //begins the timer on start click
+        const gameBoard = document.getElementById("gameboard");
         const start = document.getElementById("start");
         start.addEventListener("click",() => {
+            gameBoard.style.visibility="visible";
             intervalID = setInterval(setTime, 1000);
             shuffle()
         })
@@ -46,6 +48,7 @@
         */
         const reset = document.getElementById("reset");
         reset.addEventListener("click",() => {
+            gameBoard.style.visibility="hidden";
             clearInterval(intervalID);
             totalSeconds = -1;
             setTime()
@@ -65,6 +68,8 @@
 
 
 //function that flips the card to show images
+let hasFlippedCard = false;
+let firstCard, secondCard;
 
 function flipCard(){
     this.classList.add('flip');
@@ -72,6 +77,19 @@ function flipCard(){
     const backCard = this.lastElementChild;
     frontCard.classList.toggle('displayNone');
     backCard.classList.toggle('displayNone');
+    
+    if(!hasFlippedCard){
+        //first click
+        hasFlippedCard = true;
+        firstCard = this;
+    }
+    else{
+        //second click
+        hasFlippedCard = false;
+        secondCard = this;
+    console.log({firstCard, secondCard});
+    }
+    //Add matching function here
 }
 
 cards.forEach(card=>card.addEventListener('click', flipCard));
