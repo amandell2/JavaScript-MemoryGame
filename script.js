@@ -48,17 +48,36 @@
 
         //function that shuffles on start and reset
 
-        //function that flips the card to show images
-
-        //create a function that lets us only click two at a time (locks gameboard)
-
-        //first card should stay flipped until second card is flipped
-
-        //function to determine matches or not
 
 
-        /*EXTRAS
-        -something that logs the number of matches
-        -congrats screen at the end with time logged
-        -add flipping animation
-         */
+
+
+
+        
+
+//function that flips the card to show images
+const cards = document.querySelectorAll('.memoryCard');
+
+function flipCard(){
+    this.classList.add('flip');
+    const frontCard = this.firstElementChild;
+    const backCard = this.lastElementChild;
+    frontCard.classList.toggle('displayNone');
+    backCard.classList.toggle('displayNone');
+}
+
+cards.forEach(card=>card.addEventListener('click', flipCard));
+
+
+
+//create a function that lets us only click two at a time (locks gameboard)
+//first card should stay flipped until second card is flipped
+
+//function to determine matches or not
+
+
+/*EXTRAS
+-something that logs the number of matches
+-congrats screen at the end with time logged
+-add flipping animation
+ */
