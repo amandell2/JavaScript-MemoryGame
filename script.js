@@ -43,6 +43,9 @@
         })
 
         //resets the timer on reset click
+        /*NEED TO ADD PAUSE TO TIMER ON RESET
+        NEED TO SHUFFLE CARDS WHEN RESET IS CLICKED
+        */
         const reset = document.getElementById("reset");
         reset.addEventListener("click",() => {
             gameBoard.style.visibility="hidden";
@@ -55,6 +58,7 @@
 
         //function that stops timer when last two cards match
 
+        //function that shuffles on start and reset
 
 
 
@@ -68,8 +72,7 @@ let hasFlippedCard = false;
 let firstCard, secondCard;
 
 function flipCard(){
-    //this.classList.add('flip');
-    console.log(this);
+    this.classList.add('flip');
     const frontCard = this.firstElementChild;
     const backCard = this.lastElementChild;
     frontCard.classList.toggle('displayNone');
@@ -84,21 +87,28 @@ function flipCard(){
         //second click
         hasFlippedCard = false;
         secondCard = this;
-    //console.log({firstCard, secondCard});
+    console.log({firstCard, secondCard});
     }
     //Add matching function here
-    if(firstCard.dataset.framework ===
-        secondCard.dataset.framework) {
-            firstCard.style.visibility="hidden";
-            secondCard.style.visibility="hidden";
-        } else {
-            setTimeout(() => {
-                firstCard.classList.remove("flip");
-                secondCard.classList.remove("flip");
-            }, 1500);
-        }
+    checkForMatch();
+}
+function checkForMatch() {
+        let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+      
+        isMatch ? disableCards() : unflipCards();
 }
 
+function disableCards(){
+    firstCard.style.visibility="hidden";
+    secondCard.style.visibility="hidden";
+}
+
+function unflipCards() {
+    setTimeout(() => {
+        firstCard.classList.toggle('displayNone');
+        secondCard.classList.toggle('displayNone');
+    }, 1500);
+}
 cards.forEach(card=>card.addEventListener('click', flipCard));
 
 
