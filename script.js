@@ -86,7 +86,7 @@ function flipCard(){
         secondCard = this;
     //console.log({firstCard, secondCard});
     }
-    //Add matching function here
+    //check if match
     if(firstCard.dataset.framework ===
         secondCard.dataset.framework) {
             firstCard.style.visibility="hidden";
