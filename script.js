@@ -62,10 +62,9 @@
 
 
 
-        
+
 
 //function that flips the card to show images
-const cards = document.querySelectorAll('.memoryCard');
 
 function flipCard(){
     this.classList.add('flip');
