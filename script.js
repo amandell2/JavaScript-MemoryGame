@@ -54,3 +54,76 @@
             setTime()
             shuffle()
         })
+        
+ //function that flips the card to show images
+let hasFlippedCard = false;
+let lockBoard = false;
+let firstCard, secondCard;
+
+function flipCard(){
+    if(lockBoard) return;
+    if(this === firstCard) return;
+    const frontCard = this.firstElementChild;
+    const backCard = this.lastElementChild;
+    frontCard.classList.toggle('displayNone');
+    backCard.classList.toggle('displayNone');
+    
+    if(!hasFlippedCard){
+        //first click
+        hasFlippedCard = true;
+        firstCard = this;
+        return;
+    }
+        //second click
+        hasFlippedCard = false;
+        secondCard = this;
+    console.log(firstCard.dataset.framework);
+    console.log(secondCard.dataset.framework);
+    //check if match
+        checkForMatch();
+    }
+
+    //funtion that checks for match
+    function checkForMatch(){
+        let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+        console.log(isMatch);
+        isMatch ? disableCards() : unflipCards();
+    }
+
+    function disableCards(){
+        setTimeout(()=>{
+        firstCard.style.visibility = "hidden";
+        secondCard.style.visibility = "hidden";
+        resetBoard();
+        }, 1500); 
+    }
+
+    function unflipCards(){
+        lockBoard = true;
+        setTimeout(()=>{
+            firstCard.firstElementChild.classList.add('displayNone');
+            firstCard.lastElementChild.classList.remove('displayNone');
+            secondCard.firstElementChild.classList.add('displayNone');
+            secondCard.lastElementChild.classList.remove('displayNone');
+            resetBoard();
+        }, 1500);
+    }
+
+    function resetBoard() {
+        [hasFlippedCard, lockBoard] = [false, false];
+        [firstCard, secondCard] = [null, null];
+      }
+    
+
+cards.forEach(card=>card.addEventListener('click', flipCard));
+
+//function that stops timer when last two cards match
+
+ //function that shuffles on start and reset
+
+ /*EXTRAS
+-something that logs the number of matches
+-congrats screen at the end with time logged
+-add flipping animation
+ */
+
