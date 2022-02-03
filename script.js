@@ -32,6 +32,10 @@
               let randomPos = Math.floor(Math.random() * 6);
               card.style.order = randomPos;
               card.style.visibility="visible";
+              cards.forEach(card => {
+                card.firstElementChild.classList.add("displayNone");
+                card.lastElementChild.classList.remove("displayNone");
+            })
             });
           }
         //begins the timer on start click
@@ -48,17 +52,12 @@
         NEED TO SHUFFLE CARDS WHEN RESET IS CLICKED
         */
         const reset = document.getElementById("reset"); 
-        reset.addEventListener("click",() => {  //Get the board to complete reset
-            gameBoard.style.visibility="hidden";
-            clearInterval(intervalID);
+        reset.addEventListener("click",() => {  
             totalSeconds = -1;
             setTime()
             shuffle()
             //console.log(cards);
-            cards.forEach(card => {
-                card.firstElementChild.classList.add("displayNone");
-                card.lastElementChild.classList.remove("displayNone");
-            })
+            
         });
  //function that flips the card to show images
 let hasFlippedCard = false;
