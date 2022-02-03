@@ -53,11 +53,7 @@ NEED TO SHUFFLE CARDS WHEN RESET IS CLICKED
 */
 const reset = document.getElementById("reset"); 
 reset.addEventListener("click",() => {  
-    totalSeconds = -1;
-    setTime()
-    shuffle()
-    //console.log(cards);
-    
+    location.reload();
 });
 //function that flips the card to show images
 let hasFlippedCard = false;
