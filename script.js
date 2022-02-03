@@ -60,7 +60,6 @@
                 card.lastElementChild.classList.remove("displayNone");
             })
         });
-
  //function that flips the card to show images
 let hasFlippedCard = false;
 let lockBoard = false;
@@ -161,3 +160,4 @@ when it hits 6 cards hidden stop timer and end game
 -congrats screen at the end with time logged
 -add flipping animation
  */
+
