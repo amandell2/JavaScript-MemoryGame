@@ -32,14 +32,13 @@
             cards.forEach(card => {
               let randomPos = Math.floor(Math.random() * 6);
               card.style.order = randomPos;
-<<<<<<< HEAD
-=======
+
               card.style.visibility="visible";
               cards.forEach(card => {
                 card.firstElementChild.classList.add("displayNone");
                 card.lastElementChild.classList.remove("displayNone");
             })
->>>>>>> c2130e312b23e543478e8cfa727a024ee0389bdd
+
             });
           }
         //begins the timer on start click
@@ -55,7 +54,7 @@
         /*NEED TO ADD PAUSE TO TIMER ON RESET
         NEED TO SHUFFLE CARDS WHEN RESET IS CLICKED
         */
-<<<<<<< HEAD
+
         const reset = document.getElementById("reset");
         reset.addEventListener("click",() => {
             gameBoard.style.visibility="hidden";
@@ -66,7 +65,7 @@
             
         })
         
-=======
+
         const reset = document.getElementById("reset"); 
         reset.addEventListener("click",() => {  
             totalSeconds = -1;
