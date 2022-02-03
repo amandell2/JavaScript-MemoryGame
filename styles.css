@@ -65,22 +65,17 @@ body {
     height: 200px;
     margin-left: auto;
     margin-right: auto;
-    /*transform: scale(1);
+    transform: scale(1);
     transform-style: preserve-3d;
     transition: transform .5s;
-    box-shadow: 1px 1px 1px rgba(0,0,0,.3);*/
+    box-shadow: 1px 1px 1px rgba(0,0,0,.3);
 }
 
-/*
+
 .memoryCard:active {
-  transform: scale(0.97);
+  transform: scale(2);
   transition: transform .2s;
 }
-
-.memoryCard.flip {
-  transform: rotateY(180deg);
-}
-*/
 
 #frontface,
 #backface{
@@ -147,6 +142,10 @@ body {
   
   .buttons{
       display: flex;
+  }
+
+  .visible{
+    visibility: visible;
   }
 
 

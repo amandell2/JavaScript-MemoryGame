@@ -31,6 +31,7 @@
             cards.forEach(card => {
               let randomPos = Math.floor(Math.random() * 6);
               card.style.order = randomPos;
+              card.style.visibility="visible";
             });
           }
         //begins the timer on start click
@@ -46,14 +47,19 @@
         /*NEED TO ADD PAUSE TO TIMER ON RESET
         NEED TO SHUFFLE CARDS WHEN RESET IS CLICKED
         */
-        const reset = document.getElementById("reset");
-        reset.addEventListener("click",() => {
+        const reset = document.getElementById("reset"); 
+        reset.addEventListener("click",() => {  //Get the board to complete reset
             gameBoard.style.visibility="hidden";
             clearInterval(intervalID);
             totalSeconds = -1;
             setTime()
             shuffle()
-        })
+            //console.log(cards);
+            cards.forEach(card => {
+                card.firstElementChild.classList.add("displayNone");
+                card.lastElementChild.classList.remove("displayNone");
+            })
+        });
 
  //function that flips the card to show images
 let hasFlippedCard = false;
@@ -84,11 +90,36 @@ function flipCard(){
     }
 
     //funtion that checks for match
+    let count = 0;
     function checkForMatch(){
         let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
         console.log(isMatch);
+        if(isMatch){
+            count++;
+            console.log(count);
+        }
         isMatch ? disableCards() : unflipCards();
+        gameOver();
     }
+
+    function gameOver(){
+        if(count===3){
+        clearInterval(intervalID);
+            totalSeconds = -1;
+        }
+    };
+    /*function matchCounter(){
+        let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+        let count = 0;
+        console.log(count);
+        for(i = 0; i >= ; i++){
+        if(isMatch === true){
+            count++
+            }
+        return console.log(count);
+        }  
+        
+    };*/
 
     function disableCards(){
         setTimeout(()=>{
@@ -113,13 +144,17 @@ function flipCard(){
         [hasFlippedCard, lockBoard] = [false, false];
         [firstCard, secondCard] = [null, null];
       }
-    
 
 cards.forEach(card=>card.addEventListener('click', flipCard));
 
 //function that stops timer when last two cards match
+/*
+check if visibility is hidden (style.visibility)
+create a counter of hidden cards
+when it hits 6 cards hidden stop timer and end game
+*/
 
- //function that shuffles on start and reset
+
 
  /*EXTRAS
 -something that logs the number of matches
